@@ -1,6 +1,6 @@
 local p=game.Players.LocalPlayer
 local g=Instance.new("ScreenGui",p:WaitForChild("PlayerGui"))
-local f=Instance.new("Frame",g)
+local f=Instance.new("ScrollingFrame,g")
 f.BackgroundColor3=Color3.new(0,0,0)
 f.Size=UDim2.new(0.2,0,0.2,0)
 f.Position=UDim2.new(0.05,0,0.05,0)
@@ -116,6 +116,18 @@ for I=1,140 do
 end
     end
 end
+end)
+
+local D=Instance.new("TextButton",f)
+D.Size=UDim2.new(1,0,0.25,0)
+D.Text="invisible"
+D.TextColor3=Color3.new(1,1,1)
+Instance.new("UICorner",D)
+D.Position=UDim2.new(0,0,0.60,0)
+D.BackgroundTransparency=0.2
+D.TextScaled=true
+D.BackgroundColor3=Color3.new(0,0,0)
+D.MouseButton1Click:Connect(function()
 end)
 local s=Instance.new("Sound",game.SoundService)
 s.SoundId="rbxassetid://6042053626"
