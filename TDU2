@@ -4,11 +4,11 @@ local f=Instance.new("ScrollingFrame")
 f.Parent=g
 f.BackgroundColor3=Color3.new(0,0,0)
 f.Size=UDim2.new(0.2,0,0.2,0)
-f.Position=UDim2.new(0.05,0,0.05,0)
+f.Position=UDim2.new(0.005,0,0.05,0)
 f.BackgroundTransparency=0.2
 Instance.new("UIStroke",f).Thickness=10
 local btn=Instance.new("TextButton",f)
-btn.Size=UDim2.new(1,0,0.25,0)
+btn.Size=UDim2.new(1,0,0.025,0)
 btn.Text="Autofarm/Autokill"
 Instance.new("UICorner",btn)
 btn.TextColor3=Color3.new(1,1,1)
@@ -44,11 +44,11 @@ btn.MouseButton1Click:Connect(function()
 end)
 
 local B=Instance.new("TextButton",f)
-B.Size=UDim2.new(1,0,0.25,0)
+B.Size=UDim2.new(1,0,0.025,0)
 B.Text="Kill aura"
 B.TextColor3=Color3.new(1,1,1)
 Instance.new("UICorner",B)
-B.Position=UDim2.new(0,0,0.30,0)
+B.Position=UDim2.new(0,0,0.030,0)
 B.BackgroundTransparency=0.2
 B.TextScaled=true
 B.BackgroundColor3=Color3.new(0,0,0)
@@ -120,11 +120,11 @@ end
 end)
 
 local D=Instance.new("TextButton",f)
-D.Size=UDim2.new(1,0,0.25,0)
+D.Size=UDim2.new(1,0,0.025,0)
 D.Text="invisible"
 D.TextColor3=Color3.new(1,1,1)
 Instance.new("UICorner",D)
-D.Position=UDim2.new(0,0,0.60,0)
+D.Position=UDim2.new(0,0,0.060,0)
 D.BackgroundTransparency=0.2
 D.TextScaled=true
 D.BackgroundColor3=Color3.new(0,0,0)
