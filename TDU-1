@@ -9,110 +9,6 @@
 
 ]]--
 
-bit32 = {};
-local N = 32;
-local P = (5 - 3) ^ N;
-bit32.bnot = function(x)
-	x = x % P;
-	return (P - (2 - 1)) - x;
-end;
-bit32.band = function(x, y)
-	if (y == (491 - 236)) then
-		return x % 256;
-	end
-	if (y == 65535) then
-		return x % 65536;
-	end
-	if (y == 4294967295) then
-		return x % (4294967296 - 0);
-	end
-	x, y = x % P, y % P;
-	local r = 0;
-	local p = 1;
-	for i = 1, N do
-		local a, b = x % (621 - (555 + 64)), y % (933 - (857 + 74));
-		x, y = math.floor(x / (570 - (367 + 201))), math.floor(y / 2);
-		if ((a + b) == 2) then
-			r = r + p;
-		end
-		p = 2 * p;
-	end
-	return r;
-end;
-bit32.bor = function(x, y)
-	if (y == (1182 - (214 + 713))) then
-		return (x - (x % 256)) + 255;
-	end
-	if (y == 65535) then
-		return (x - (x % (16405 + 49131))) + 65535;
-	end
-	if (y == 4294967295) then
-		return 4148678326 - -146288969;
-	end
-	x, y = x % P, y % P;
-	local r = 1637 - (1523 + 114);
-	local p = 1 + 0;
-	for i = 1, N do
-		local a, b = x % (2 - 0), y % (1067 - (68 + 997));
-		x, y = math.floor(x / 2), math.floor(y / (1272 - (226 + 1044)));
-		if ((a + b) >= (4 - 3)) then
-			r = r + p;
-		end
-		p = (119 - (32 + 85)) * p;
-	end
-	return r;
-end;
-bit32.bxor = function(x, y)
-	x, y = x % P, y % P;
-	local r = 0;
-	local p = 1;
-	for i = 1 + 0, N do
-		local a, b = x % (1 + 1), y % 2;
-		x, y = math.floor(x / (959 - (892 + 65))), math.floor(y / (4 - 2));
-		if ((a + b) == 1) then
-			r = r + p;
-		end
-		p = (3 - 1) * p;
-	end
-	return r;
-end;
-bit32.lshift = function(x, s_amount)
-	if (math.abs(s_amount) >= N) then
-		return 0;
-	end
-	x = x % P;
-	if (s_amount < (0 - 0)) then
-		return math.floor(x * ((352 - (87 + 263)) ^ s_amount));
-	else
-		return (x * ((182 - (67 + 113)) ^ s_amount)) % P;
-	end
-end;
-bit32.rshift = function(x, s_amount)
-	if (math.abs(s_amount) >= N) then
-		return 0 + 0;
-	end
-	x = x % P;
-	if (s_amount > (0 - 0)) then
-		return math.floor(x * (2 ^ -s_amount));
-	else
-		return (x * ((2 + 0) ^ -s_amount)) % P;
-	end
-end;
-bit32.arshift = function(x, s_amount)
-	if (math.abs(s_amount) >= N) then
-		return 0;
-	end
-	x = x % P;
-	if (s_amount > (0 - 0)) then
-		local add = 0;
-		if (x >= (P / 2)) then
-			add = P - ((954 - (802 + 150)) ^ (N - s_amount));
-		end
-		return math.floor(x * (2 ^ -s_amount)) + add;
-	else
-		return (x * (2 ^ -s_amount)) % P;
-	end
-end;
 local obf_stringchar = string['char'];
 local obf_stringbyte = string['byte'];
 local obf_stringsub = string['sub'];
@@ -123,111 +19,229 @@ local obf_tableinsert = table['insert'];
 local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
 	local result = {};
 	for i = 2 - 1, #LUAOBFUSACTOR_STR do
-		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + (1 - 0))), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), 1 + 0 + (i % #LUAOBFUSACTOR_KEY) + (998 - (915 + 82))))) % 256));
+		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), (2 - 1) + (i % #LUAOBFUSACTOR_KEY) + (1 - 0)))) % (659 - 403)));
 	end
 	return obf_tableconcat(result);
 end
+bit32 = {};
+local N = 651 - (555 + 64);
+local P = 2 ^ N;
+bit32.bnot = function(x)
+	x = x % P;
+	return (P - (932 - (857 + 74))) - x;
+end;
+bit32.band = function(x, y)
+	if (y == (823 - (367 + 201))) then
+		return x % 256;
+	end
+	if (y == 65535) then
+		return x % (66463 - (214 + 713));
+	end
+	if (y == (4801641719 - 506674424)) then
+		return x % 4294967296;
+	end
+	x, y = x % P, y % P;
+	local r = 0;
+	local p = 1;
+	for i = 1, N do
+		local a, b = x % 2, y % 2;
+		x, y = math.floor(x / 2), math.floor(y / (2 + 0));
+		if ((a + b) == (1639 - (1523 + 114))) then
+			r = r + p;
+		end
+		p = (2 + 0) * p;
+	end
+	return r;
+end;
+bit32.bor = function(x, y)
+	if (y == 255) then
+		return (x - (x % (364 - 108))) + 255;
+	end
+	if (y == 65535) then
+		return (x - (x % 65536)) + 65535;
+	end
+	if (y == 4294967295) then
+		return 4294968360 - (68 + 997);
+	end
+	x, y = x % P, y % P;
+	local r = 1270 - (226 + 1044);
+	local p = 4 - 3;
+	for i = 1, N do
+		local a, b = x % 2, y % 2;
+		x, y = math.floor(x / 2), math.floor(y / (119 - (32 + 85)));
+		if ((a + b) >= 1) then
+			r = r + p;
+		end
+		p = (2 + 0) * p;
+	end
+	return r;
+end;
+bit32.bxor = function(x, y)
+	x, y = x % P, y % P;
+	local r = 0;
+	local p = 1 + 0;
+	for i = 958 - (892 + 65), N do
+		local a, b = x % 2, y % (4 - 2);
+		x, y = math.floor(x / (3 - 1)), math.floor(y / 2);
+		if ((a + b) == 1) then
+			r = r + p;
+		end
+		p = 2 * p;
+	end
+	return r;
+end;
+bit32.lshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0;
+	end
+	x = x % P;
+	if (s_amount < 0) then
+		return math.floor(x * (2 ^ s_amount));
+	else
+		return (x * ((3 - 1) ^ s_amount)) % P;
+	end
+end;
+bit32.rshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0;
+	end
+	x = x % P;
+	if (s_amount > (350 - (87 + 263))) then
+		return math.floor(x * (2 ^ -s_amount));
+	else
+		return (x * ((182 - (67 + 113)) ^ -s_amount)) % P;
+	end
+end;
+bit32.arshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0 + 0;
+	end
+	x = x % P;
+	if (s_amount > 0) then
+		local add = 0 - 0;
+		if (x >= (P / 2)) then
+			add = P - (2 ^ (N - s_amount));
+		end
+		return math.floor(x * ((2 + 0) ^ -s_amount)) + add;
+	else
+		return (x * (2 ^ -s_amount)) % P;
+	end
+end;
 local p = game['Players']['LocalPlayer'];
 local g = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\226\192\201\32\227\181\224\11\216", "\126\177\163\187\69\134\219\167"));
 g['ResetOnSpawn'] = false;
 g['Parent'] = p:WaitForChild(LUAOBFUSACTOR_DECRYPT_STR_0("\19\193\43\220\249\49\234\63\204", "\156\67\173\74\165"));
 local f = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\7\180\91\25\176\42\79\58\176\111\4\189\43\67", "\38\84\215\41\118\220\70"));
 f['Parent'] = g;
-f['BackgroundColor3'] = Color3.new(0, 0 - 0, 0 + 0);
-f['Size'] = UDim2.new(0.2, 0 - 0, 0.2, 0);
-f['Position'] = UDim2.new(1187.05 - (1069 + 118), 0, 0.05, 0 - 0);
-f['BackgroundTransparency'] = 0.2;
-f['BorderSizePixel'] = 0 - 0;
+f['BackgroundColor3'] = Color3.new(0, 0 - 0, 952 - (802 + 150));
+f['Size'] = UDim2.new(0.2 - 0, 0 - 0, 0.2 + 0, 0);
+f['Position'] = UDim2.new(0.05, 0, 0.05, 997 - (915 + 82));
+f['BackgroundTransparency'] = 0.2 - 0;
+f['BorderSizePixel'] = 0;
 local u = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\101\63\17\6\236\95\29\39", "\158\48\118\66\114"), f);
-u['Thickness'] = 2 + 8;
-u['Color'] = Color3.new(0, 0, 0);
+u['Thickness'] = 6 + 4;
+u['Color'] = Color3.new(0 - 0, 1187 - (1069 + 118), 0 - 0);
 u['Transparency'] = 0.2 - 0;
 local tx = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\159\33\8\34\95\164\249\174\40", "\155\203\68\112\86\19\197"), g);
-tx['Size'] = UDim2.new(0.2, 0, 0.03 + 0, 791 - (368 + 423));
-tx['Position'] = UDim2.new(0.05, 0, 0.007, 0);
+tx['Size'] = UDim2.new(0.2, 0, 0.03, 0 + 0);
+tx['Position'] = UDim2.new(0.05 - 0, 0, 0.007 + 0, 0);
 tx['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\103\211\63\241\65\116\165\253\80\210\58\233\84\113\234\246\6\238\63\241\85\116\228\236\73\207\118\239\67\106\236\232\82\145\118\241\65\124\224\184\68\196\118\217\88\109\230\236\79\203\51\195\109\125\232\184\73\211\118\248\73\107\230\247\84\217\120", "\152\38\189\86\156\32\24\133");
-tx['TextColor3'] = Color3.new(3 - 2, 1, 1);
+tx['TextColor3'] = Color3.new(1, 1, 1);
 tx['TextScaled'] = true;
-tx['BackgroundColor3'] = Color3.new(0, 18 - (10 + 8), 0);
-tx['BackgroundTransparency'] = 0.2 - 0;
-tx['BorderSizePixel'] = 0;
+tx['BackgroundColor3'] = Color3.new(791 - (368 + 423), 0, 0);
+tx['BackgroundTransparency'] = 0.2;
+tx['BorderSizePixel'] = 0 - 0;
 local B = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\200\82\191\82\222\66\179\82\243\89", "\38\156\55\199"));
 B['Parent'] = f;
-B['Size'] = UDim2.new(1, 0, 0.02, 442 - (416 + 26));
-B['Position'] = UDim2.new(0 - 0, 0 + 0, 0, 0);
-B['BackgroundColor3'] = Color3.new(0.1 - 0, 438.1 - (145 + 293), 430.1 - (44 + 386));
+B['Size'] = UDim2.new(1, 0, 18.02 - (10 + 8), 0);
+B['Position'] = UDim2.new(0 - 0, 442 - (416 + 26), 0, 0);
+B['BackgroundColor3'] = Color3.new(0.1 - 0, 0.1 + 0, 0.1 - 0);
 B['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\138\120\127\39\30\113\186\119\229\79\121\48", "\35\200\29\28\72\115\20\154");
-B['TextColor3'] = Color3.new(1, 1487 - (998 + 488), 1 + 0);
+B['TextColor3'] = Color3.new(439 - (145 + 293), 1, 1);
 B['TextScaled'] = true;
 B['BorderSizePixel'] = 0;
-Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\44\150\242\208\159\34\49\11", "\84\121\223\177\191\237\76"), B)['CornerRadius'] = UDim.new(0, 7 + 1);
+Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\44\150\242\208\159\34\49\11", "\84\121\223\177\191\237\76"), B)['CornerRadius'] = UDim.new(430 - (44 + 386), 8);
 B['MouseButton1Click']:Connect(function()
-	local args = {[773 - (201 + 571)]=LUAOBFUSACTOR_DECRYPT_STR_0("\143\27\251\165\34", "\161\219\54\169\192\90\48\80")};
+	local args = {[1487 - (998 + 488)]=LUAOBFUSACTOR_DECRYPT_STR_0("\143\27\251\165\34", "\161\219\54\169\192\90\48\80")};
 	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\123\71\16\41\64\65\1\49\76\70\51\49\70\80\1\34\76", "\69\41\34\96"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
 end);
 local C = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\136\198\207\30\32\62\168\215\216\4", "\75\220\163\183\106\98"));
 C['Parent'] = f;
-C['Size'] = UDim2.new(1, 0, 1138.02 - (116 + 1022), 0 - 0);
-C['Position'] = UDim2.new(0 + 0, 0, 0.03, 0 - 0);
-C['BackgroundColor3'] = Color3.new(0.1 - 0, 0.1, 0.1);
+C['Size'] = UDim2.new(1, 0, 0.02 + 0, 0);
+C['Position'] = UDim2.new(0 + 0, 0, 772.03 - (201 + 571), 1138 - (116 + 1022));
+C['BackgroundColor3'] = Color3.new(0.1 - 0, 0.1, 0.1 + 0);
 C['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\32\191\136\56\212\7\250\167\34\215\3\168\203\19\203\3\189\132\57", "\185\98\218\235\87");
-C['TextColor3'] = Color3.new(860 - (814 + 45), 2 - 1, 1 + 0);
+C['TextColor3'] = Color3.new(3 - 2, 3 - 2, 1);
 C['TextScaled'] = true;
 C['BorderSizePixel'] = 0;
-Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\254\21\4\233\204\164\206\46", "\202\171\92\71\134\190"), C)['CornerRadius'] = UDim.new(0 + 0, 893 - (261 + 624));
+Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\254\21\4\233\204\164\206\46", "\202\171\92\71\134\190"), C)['CornerRadius'] = UDim.new(859 - (814 + 45), 8);
 C['MouseButton1Click']:Connect(function()
-	local args = {[1 - 0]=LUAOBFUSACTOR_DECRYPT_STR_0("\5\212\34\137\59\129\8\154\40\198\35\134", "\232\73\161\76")};
+	local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\5\212\34\137\59\129\8\154\40\198\35\134", "\232\73\161\76")};
 	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\137\220\82\81\23\184\216\86\88\26\136\205\77\79\31\188\220", "\126\219\185\34\61"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
 end);
 local P = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\56\203\70\102\92\98\231\243\3\192", "\135\108\174\62\18\30\23\147"));
 P['Parent'] = f;
-P['Size'] = UDim2.new(1081 - (1020 + 60), 1423 - (630 + 793), 0.02, 0 - 0);
-P['Position'] = UDim2.new(0, 0, 0.06 - 0, 0);
-P['BackgroundColor3'] = Color3.new(0.1 + 0, 0.1 - 0, 1747.1 - (760 + 987));
+P['Size'] = UDim2.new(1, 0 - 0, 0.02, 0 + 0);
+P['Position'] = UDim2.new(0 + 0, 0, 0.06, 885 - (261 + 624));
+P['BackgroundColor3'] = Color3.new(0.1 - 0, 0.1, 0.1);
 P['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\148\236\41\196\21\171\115\244\179\255\47\197\88\154\50\206\186\236\46\139\30\161\43", "\167\214\137\74\171\120\206\83");
-P['TextColor3'] = Color3.new(1, 1914 - (1789 + 124), 1);
+P['TextColor3'] = Color3.new(1081 - (1020 + 60), 1, 1);
 P['TextScaled'] = true;
-P['BorderSizePixel'] = 0;
-Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\190\217\17\82\234\169\142\226", "\199\235\144\82\61\152"), P)['CornerRadius'] = UDim.new(766 - (745 + 21), 3 + 5);
+P['BorderSizePixel'] = 1423 - (630 + 793);
+Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\190\217\17\82\234\169\142\226", "\199\235\144\82\61\152"), P)['CornerRadius'] = UDim.new(0, 8);
 P['MouseButton1Click']:Connect(function()
-	local args = {[2 - 1]=LUAOBFUSACTOR_DECRYPT_STR_0("\80\91\141\42\14\26\188\47\71\48\182\51", "\75\103\118\217")};
+	local args = {[3 - 2]=LUAOBFUSACTOR_DECRYPT_STR_0("\80\91\141\42\14\26\188\47\71\48\182\51", "\75\103\118\217")};
 	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\245\81\96\24\176\29\198\64\117\16\138\10\200\70\113\19\188", "\126\167\52\16\116\217"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
 end);
 local A = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\252\43\56\148\150\12\232\220\33\46", "\156\168\78\64\224\212\121"));
 A['Parent'] = f;
-A['Size'] = UDim2.new(1, 0 - 0, 0.02 + 0, 0);
-A['Position'] = UDim2.new(0, 0 + 0, 0.09, 1055 - (87 + 968));
-A['BackgroundColor3'] = Color3.new(0.1 - 0, 0.1 + 0, 0.1 - 0);
+A['Size'] = UDim2.new(4 - 3, 0, 0.02 + 0, 0);
+A['Position'] = UDim2.new(0, 0 - 0, 0.09, 1747 - (760 + 987));
+A['BackgroundColor3'] = Color3.new(1913.1 - (1789 + 124), 0.1, 0.1);
 A['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\32\235\177\142\83\160\252\142\42\231\169\194\14\225\171\142\2\248\170\142\4\225\172\192\20", "\174\103\142\197");
-A['TextColor3'] = Color3.new(1414 - (447 + 966), 1, 2 - 1);
+A['TextColor3'] = Color3.new(1, 767 - (745 + 21), 1);
 A['TextScaled'] = true;
-A['BorderSizePixel'] = 1817 - (1703 + 114);
-Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\99\1\124\55\55\80\253\68", "\152\54\72\63\88\69\62"), A)['CornerRadius'] = UDim.new(701 - (376 + 325), 12 - 4);
+A['BorderSizePixel'] = 0 + 0;
+Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\99\1\124\55\55\80\253\68", "\152\54\72\63\88\69\62"), A)['CornerRadius'] = UDim.new(0, 8);
 A['MouseButton1Click']:Connect(function()
-	for I = 1, 30766 - 20767 do
-		local args = {[1 + 0]=LUAOBFUSACTOR_DECRYPT_STR_0("\129\148\190\28\241\210\225\127\219\205\224\79", "\60\180\164\142"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\125\72\10\10\40\228\28\75", "\114\56\62\101\73\71\141")};
+	for I = 2 - 1, 9999 do
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\129\148\190\28\241\210\225\127\219\205\224\79", "\60\180\164\142"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\125\72\10\10\40\228\28\75", "\114\56\62\101\73\71\141")};
 		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\138\236\203\200\177\234\218\208\189\237\232\208\183\251\218\195\189", "\164\216\137\187"))['Events']['UpdateStatEvent']:FireServer(unpack(args));
 	end
 end);
 local G = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\230\227\41\166\132\235\31\198\233\63", "\107\178\134\81\210\198\158"));
 G['Parent'] = f;
-G['Size'] = UDim2.new(2 - 1, 14 - (9 + 5), 376.02 - (85 + 291), 1265 - (243 + 1022));
-G['Position'] = UDim2.new(0, 0 - 0, 0.12, 0);
-G['BackgroundColor3'] = Color3.new(0.1 + 0, 1180.1 - (1123 + 57), 0.1 + 0);
+G['Size'] = UDim2.new(1, 0 - 0, 0.02, 0 + 0);
+G['Position'] = UDim2.new(0 + 0, 1055 - (87 + 968), 0.12 - 0, 0);
+G['BackgroundColor3'] = Color3.new(0.1 + 0, 0.1, 0.1);
 G['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\8\27\140\197\162\120\0\141\134\169\55\1\142\194\165\47\0", "\202\88\110\226\166");
-G['TextColor3'] = Color3.new(255 - (163 + 91), 1, 1931 - (1869 + 61));
+G['TextColor3'] = Color3.new(1, 2 - 1, 1414 - (447 + 966));
 G['TextScaled'] = true;
 G['BorderSizePixel'] = 0;
 Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\246\38\161\248\216\205\10\144", "\170\163\111\226\151"), G)['CornerRadius'] = UDim.new(0, 8);
 G['MouseButton1Click']:Connect(function()
 	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\35\53\162\52\71\52\40\5\53\182\11\90\56\59\16\55\183", "\73\113\80\210\88\46\87"))['Events']['AttackEvent']:FireServer();
 end);
-local sound = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\178\35\216\28\227", "\135\225\76\173\114"));
-sound['SoundId'] = LUAOBFUSACTOR_DECRYPT_STR_0("\8\239\160\177\191\174\162\14\228\188\234\227\242\241\74\185\234\224\249\238\241\72\187", "\199\122\141\216\208\204\221");
+local P = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\181\41\213\6\197\148\56\217\29\233", "\135\225\76\173\114"));
+P['Parent'] = f;
+P['Size'] = UDim2.new(2 - 1, 1817 - (1703 + 114), 701.02 - (376 + 325), 0);
+P['Position'] = UDim2.new(0, 0 - 0, 0.15 - 0, 0 + 0);
+P['BackgroundColor3'] = Color3.new(0.1 - 0, 14.1 - (9 + 5), 376.1 - (85 + 291));
+P['Text'] = LUAOBFUSACTOR_DECRYPT_STR_0("\56\232\187\191\161\184\231\45\229\177\164\169\253\163\21\251\189", "\199\122\141\216\208\204\221");
+P['TextColor3'] = Color3.new(1266 - (243 + 1022), 1, 1);
+P['TextScaled'] = true;
+P['BorderSizePixel'] = 0 - 0;
+Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\152\244\51\255\106\248\168\207", "\150\205\189\112\144\24"), P)['CornerRadius'] = UDim.new(0, 7 + 1);
+P['MouseButton1Click']:Connect(function()
+	local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\18\140\182\88\1\200\53\31\51\129", "\112\69\228\223\44\100\232\113")};
+	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\230\26\23\223\191\127\135\192\26\3\224\162\115\148\213\24\2", "\230\180\127\103\179\214\28"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
+end);
+local sound = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\191\10\74\72\224", "\128\236\101\63\38\132\33"));
+sound['SoundId'] = LUAOBFUSACTOR_DECRYPT_STR_0("\190\171\9\69\165\248\202\184\160\21\30\249\164\153\252\253\67\20\227\184\153\254\255", "\175\204\201\113\36\214\139");
 sound['Parent'] = game['SoundService'];
 local children = f:GetChildren();
 for _, child in pairs(children) do
-	if child:IsA(LUAOBFUSACTOR_DECRYPT_STR_0("\153\216\8\228\90\227\185\201\31\254", "\150\205\189\112\144\24")) then
+	if child:IsA(LUAOBFUSACTOR_DECRYPT_STR_0("\115\201\45\200\38\82\216\33\211\10", "\100\39\172\85\188")) then
 		child['MouseButton1Click']:Connect(function()
 			sound:Play();
 		end);
